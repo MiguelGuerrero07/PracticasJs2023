@@ -1,6 +1,4 @@
 
-
-
     const email  = {
         email: ' ' ,
         asunto: ' ',
@@ -16,19 +14,16 @@
     const btnReset      = document.querySelector('#formulario button [type= "reset"]');
     const spinner       = document.querySelector('#spinner');
 
-
     //ASIGNA EVENTOS
-    inputEmail.addEventListener('input', validar);
-    inputAsunto.addEventListener('input', validar);
-    inputMensaje.addEventListener('input', validar);
+    inputEmail.addEventListener('blur', validar);
+    inputAsunto.addEventListener('blur', validar);
+    inputMensaje.addEventListener('blur', validar);
 
     formulario.addEventListener('submit',enviarEmail);
 
     btnReset.addEventListener('click',function (e) {    
         e.preventDefault();
         reserFormulario();
-
-
         
     });
 
@@ -66,6 +61,7 @@
             email [e.target.name] =   '';
             comprobarEmail();
             return;
+            console.log("Puebas");
             
         }
         if(e.target.id ==='email'&&  !validarEmail(e.target.value)){
@@ -139,4 +135,3 @@
         formulario.reset();
         comprobarEmail();
     }
-
